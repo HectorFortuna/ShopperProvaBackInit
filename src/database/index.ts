@@ -1,6 +1,5 @@
 import { Sequelize } from 'sequelize';
 
-// Mock de variáveis de ambiente para desenvolvimento
 const mockEnv = {
     DB_NAME: 'test_db',
     DB_USER: 'test_user',

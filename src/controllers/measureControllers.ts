@@ -33,7 +33,6 @@ export const uploadMeasure = async (req: Request, res: Response) => {
             });
         }
 
-        // Chama o GeminiService
         const geminiResponse = await GeminiService.getMeterReadingFromImage(image);
 
         const measure = await Measure.create({
@@ -41,13 +40,12 @@ export const uploadMeasure = async (req: Request, res: Response) => {
             customer_code,
             measure_datetime: measureDate,
             measure_type,
-            image_url: '', // Se a API não retorna um URL, você pode definir como vazio ou remover se não for necessário
-            measure_value: geminiResponse.meterReading,
+            image_url: '', 
             has_confirmed: false,
         });
 
         return res.status(200).json({
-            image_url: '', // Ajuste conforme necessário
+            image_url: '', 
             measure_value: geminiResponse.meterReading,
             measure_uuid: measure.measure_uuid,
         });

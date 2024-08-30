@@ -39,9 +39,8 @@ class GeminiService {
             const response = await result.response;
             const text = response.text();
 
-            console.log('Resposta do Gemini:', text);  // Log para debugging
+            console.log('Resposta do Gemini:', text);
 
-            // Extrair apenas o valor numérico da resposta
             const numericValue = parseInt(text.replace(/\D/g, ''), 10);
 
             if (isNaN(numericValue)) {
